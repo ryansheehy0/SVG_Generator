@@ -1,13 +1,4 @@
-//Todo
-  //Todo: Allow for autocompletion of file/folder names.
-  //Todo: Use Jest for unit tests
-    //Todo: Tests for Triangle, Circle, and Square classes
-    /*
-      const shape = new Triangle();
-      shape.setColor("blue");
-      expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
-    */
-
+// Imports
 const Inquirer = require("./lib/inquirer")
   const question = new Inquirer()
 const shapes = require("./lib/shapes")
@@ -16,6 +7,7 @@ const SVG = require("./lib/svg")
   const svg = new SVG(300, 200)
 const fs = require('fs')
 
+// Used to make sure that the color is correct
 function validateColor(response){
   const colors = require("./lib/colors")
   const hexColorRegex = /^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/gm
@@ -25,6 +17,8 @@ function validateColor(response){
   return "Your color needs to be either a hex color or a named color which can be found here:\n\thttps://johndecember.com/html/spec/colorsvg.html"
 }
 
+
+// Starts the code
 async function start(){
   await question
     .setType("input")
@@ -65,10 +59,12 @@ async function start(){
     .setValidationFunction(validateColor)
     .askQuestion()
 
+  // Gets the answers
   const answers = question.getAnswers()
   let shape
   let svgText
 
+  // Gets which shape was chosen
   switch(answers.shape){
     case "Circle":
       shape = new shapes.Circle(150, 100, 80, answers.shapeColor)
@@ -87,6 +83,7 @@ async function start(){
       break
   }
 
+  // Adds shape and svg text to the svg
   svg.addElement(shape.render())
   svg.addElement(svgText.render())
 
@@ -94,6 +91,7 @@ async function start(){
   let location = answers.location
   location = location.charAt(location.length - 1) === "/" ? location : location + "/"
 
+  // Writes the svg to the file
   fs.writeFile(`${location}logo.svg`, svg.render(), error => {
     if(error){
       console.log(error)
