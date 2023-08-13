@@ -1,0 +1,14 @@
+<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circles
+    <circle cx="150" cy="100" r="80" fill="green"></circle>
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+  -->
+  <!-- Traingles
+    <polygon points="150,0 0,260 300,260" fill="green"/>
+    <text x="150" y="190" font-size="55" text-anchor="middle" fill="white">WWW</text>
+  -->
+  <!-- Squaare
+    <rect x="55" y="10" width="190" height="190" fill="green"/>
+    <text x="150" y="130" font-size="60" text-anchor="middle" fill="white">WWW</text>
+    -->
+</svg>

@@ -1,8 +1,11 @@
 {
-  "name": "develop",
+  "name": "svg_generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquire": "^0.4.8"
+    "inquirer": "^8.2.4"
   }
 }
